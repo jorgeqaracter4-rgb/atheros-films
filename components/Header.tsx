@@ -85,6 +85,8 @@ export default function Header() {
                   ? 'text-gray-800 hover:bg-gray-100' 
                   : 'text-white hover:bg-white/10'
               }`}
+              aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

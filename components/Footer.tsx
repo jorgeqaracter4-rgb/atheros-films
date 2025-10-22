@@ -50,37 +50,37 @@ export default function Footer() {
               <h4 className="text-lg font-bold text-white mb-6">Navegação</h4>
               <ul className="space-y-3">
                 <li>
-                  <a href="#home" className="text-white/90 hover:text-white transition-colors">
+                  <a href="#home" className="text-white/90 hover:text-white transition-colors" aria-label="Ir para seção Home">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#sobre" className="text-white/90 hover:text-white transition-colors">
+                  <a href="#sobre" className="text-white/90 hover:text-white transition-colors" aria-label="Ir para seção Sobre">
                     Sobre
                   </a>
                 </li>
                 <li>
-                  <a href="#servicos" className="text-white/90 hover:text-white transition-colors">
+                  <a href="#servicos" className="text-white/90 hover:text-white transition-colors" aria-label="Ir para seção Serviços">
                     Serviços
                   </a>
                 </li>
                 <li>
-                  <a href="#portfolio" className="text-white/90 hover:text-white transition-colors">
+                  <a href="#portfolio" className="text-white/90 hover:text-white transition-colors" aria-label="Ir para seção Portfólio">
                     Portfólio
                   </a>
                 </li>
                 <li>
-                  <a href="#time" className="text-white/90 hover:text-white transition-colors">
+                  <a href="#time" className="text-white/90 hover:text-white transition-colors" aria-label="Ir para seção Time">
                     Time
                   </a>
                 </li>
                 <li>
-                  <a href="#depoimentos" className="text-white/90 hover:text-white transition-colors">
+                  <a href="#depoimentos" className="text-white/90 hover:text-white transition-colors" aria-label="Ir para seção Depoimentos">
                     Depoimentos
                   </a>
                 </li>
                 <li>
-                  <a href="#faq" className="text-white/90 hover:text-white transition-colors">
+                  <a href="#faq" className="text-white/90 hover:text-white transition-colors" aria-label="Ir para seção FAQ">
                     FAQ
                   </a>
                 </li>

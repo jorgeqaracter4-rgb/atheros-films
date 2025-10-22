@@ -61,6 +61,12 @@ const nextConfig = {
           },
         },
       }
+      
+      // Remove legacy JavaScript
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'core-js': false,
+      }
     }
     return config
   },

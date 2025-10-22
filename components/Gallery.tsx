@@ -195,10 +195,10 @@ export default function Gallery() {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`rounded-full transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center ${
                   index === currentIndex 
                     ? 'bg-brand-500 w-8' 
-                    : 'bg-white/30 hover:bg-white/50'
+                    : 'bg-white/30 hover:bg-white/50 w-3 h-3'
                 }`}
                 aria-label={`Ir para slide ${index + 1}`}
               />
