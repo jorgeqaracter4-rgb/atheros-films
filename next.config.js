@@ -67,6 +67,17 @@ const nextConfig = {
         ...config.resolve.alias,
         'core-js': false,
       }
+      
+      // Otimizar para ES2020+
+      config.target = 'es2020'
+      
+      // Remover polyfills desnecessários
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      }
     }
     return config
   },
@@ -86,12 +97,16 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     unoptimized: false,
     loader: 'default',
+    quality: 85,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '**',
       },
     ],
+    // Otimizações de performance
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   
   // Performance optimizations

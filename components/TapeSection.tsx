@@ -6,16 +6,24 @@ export default function TapeSection() {
   const tapeRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    let ticking = false
+    
     const handleScroll = () => {
-      const scrollY = window.scrollY
-      const speed = 0.3 // Velocidade do scroll lateral
-      
-      if (tapeRef.current) {
-        tapeRef.current.style.transform = `translateX(${scrollY * speed}px)`
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY
+          const speed = 0.3 // Velocidade do scroll lateral
+          
+          if (tapeRef.current) {
+            tapeRef.current.style.transform = `translateX(${scrollY * speed}px)`
+          }
+          ticking = false
+        })
+        ticking = true
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 

@@ -150,7 +150,9 @@ const DiagonalMarquee = memo(function DiagonalMarquee({
         top: `${offsetY}px`,
         zIndex,
         filter: blur > 0 ? `blur(${blur}px)` : 'none',
-        pointerEvents: 'none' // Não bloqueia cliques
+        pointerEvents: 'none', // Não bloqueia cliques
+        contain: 'layout style paint', // Previne layout shift
+        willChange: 'transform' // Otimização GPU
       }}
       aria-hidden="true"
     >
