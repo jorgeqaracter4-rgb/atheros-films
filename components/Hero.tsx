@@ -95,7 +95,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-8"
           >
-            <h1 className="text-white font-extrabold tracking-tight mb-6 leading-[0.9]" style={{ 
+            <h1 className="text-white font-extrabold tracking-tight mb-6 leading-[0.9] mobile-contain mobile-text-stable" style={{ 
               contain: 'layout style paint',
               willChange: 'auto'
             }}>

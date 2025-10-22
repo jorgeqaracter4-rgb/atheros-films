@@ -123,6 +123,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://vercel.app" />
         <link rel="dns-prefetch" href="https://atheros-films-7ozb.vercel.app" />
         <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* Preload critical resources for mobile LCP */}
         <link rel="preload" href="/Fundo.mp4" as="video" type="video/mp4" fetchPriority="high" />
         <link rel="preload" href="/logo.webp" as="image" type="image/webp" fetchPriority="high" />
         <link rel="preload" href="/backstagePrancheta-1.png" as="image" type="image/png" fetchPriority="high" />
@@ -130,7 +131,7 @@ export default function RootLayout({
         <link rel="preload" href="/foto03.webp" as="image" type="image/webp" fetchPriority="low" />
         <link rel="preload" href="/Sem-Titulo-1Prancheta-1.png" as="image" type="image/png" fetchPriority="low" />
         
-        {/* Preload critical CSS */}
+        {/* Preload mobile-specific critical CSS */}
         <link rel="preload" href="/_next/static/css/app/layout.css" as="style" />
         <link rel="preload" href="/_next/static/css/app/globals.css" as="style" />
         
@@ -138,7 +139,7 @@ export default function RootLayout({
         <link rel="preload" href="/_next/static/chunks/pages/_app.js" as="script" />
         <link rel="preload" href="/_next/static/chunks/webpack.js" as="script" />
         
-        {/* Preload critical fonts */}
+        {/* Preload critical fonts for mobile */}
         <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script 
           dangerouslySetInnerHTML={{
@@ -152,11 +153,12 @@ export default function RootLayout({
           }} 
           async
         />
+        {/* Critical CSS inline para mobile */}
         <style dangerouslySetInnerHTML={{
           __html: `
-            /* Critical CSS for above-the-fold content */
-            html{scroll-behavior:smooth;font-display:swap}
-            body{font-family:Inter,system-ui,sans-serif;margin:0;padding:0;background:#000;color:#fff}
+            /* Critical CSS for mobile above-the-fold */
+            html{scroll-behavior:smooth;font-display:swap;font-size:16px}
+            body{font-family:Inter,system-ui,sans-serif;margin:0;padding:0;background:#000;color:#fff;font-size:1rem}
             .container-custom{max-width:1280px;margin:0 auto;padding:0 1rem}
             .min-h-screen{min-height:100vh}
             .bg-black{background-color:#000}
@@ -190,6 +192,8 @@ export default function RootLayout({
             @media (max-width:768px){.mobile-contain{contain:layout style paint}}
             @media (max-width:768px){.mobile-stable{min-height:44px;min-width:44px}}
             @media (max-width:768px){.mobile-text-stable{contain:layout style paint;will-change:auto}}
+            @media (max-width:480px){.mobile-xs{font-size:2rem}}
+            @media (max-width:480px){.mobile-xs-padding{padding:0.5rem}}
           `
         }} />
       </head>

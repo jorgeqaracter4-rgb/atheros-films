@@ -54,29 +54,38 @@ const DiagonalMarquee = memo(function DiagonalMarquee({
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
-  // Mede largura da unidade de texto com ResizeObserver
+  // Mede largura da unidade de texto com ResizeObserver (mobile optimized)
   useEffect(() => {
     if (!unitRef.current || typeof window === 'undefined') return
 
+    let timeoutId: NodeJS.Timeout | null = null
+    
     const resizeObserver = new ResizeObserver((entries) => {
-      // Use requestIdleCallback to avoid blocking the main thread
-      if (window.requestIdleCallback) {
-        window.requestIdleCallback(() => {
-          for (const entry of entries) {
-            setUnitWidth(entry.contentRect.width)
-          }
-        })
-      } else {
-        setTimeout(() => {
-          for (const entry of entries) {
-            setUnitWidth(entry.contentRect.width)
-          }
-        }, 0)
-      }
+      // Throttle updates for mobile performance
+      if (timeoutId) clearTimeout(timeoutId)
+      
+      timeoutId = setTimeout(() => {
+        if (window.requestIdleCallback) {
+          window.requestIdleCallback(() => {
+            for (const entry of entries) {
+              setUnitWidth(entry.contentRect.width)
+            }
+          }, { timeout: 100 })
+        } else {
+          requestAnimationFrame(() => {
+            for (const entry of entries) {
+              setUnitWidth(entry.contentRect.width)
+            }
+          })
+        }
+      }, 16) // ~60fps throttling
     })
 
     resizeObserver.observe(unitRef.current)
-    return () => resizeObserver.disconnect()
+    return () => {
+      resizeObserver.disconnect()
+      if (timeoutId) clearTimeout(timeoutId)
+    }
   }, [text])
 
   // Animação de scroll com requestAnimationFrame
