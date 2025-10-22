@@ -6,7 +6,6 @@ const nextConfig = {
     scrollRestoration: true,
     webpackBuildWorker: true,
     esmExternals: 'loose',
-    optimizeCss: true,
     serverComponentsExternalPackages: ['framer-motion'],
   },
   
