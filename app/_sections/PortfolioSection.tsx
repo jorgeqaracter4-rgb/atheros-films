@@ -4,10 +4,10 @@ import styles from "./PortfolioSection.module.css"
 import { GalleryItem } from "../_components/Gallery"
 
 const Gallery = dynamic(() => import("../_components/Gallery"), {
-  ssr: true,
+  ssr: false,
   loading: () => (
-    <div className={styles.loading}>
-      <p>Carregando galeria...</p>
+    <div className="flex items-center justify-center h-[400px]">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-500"></div>
     </div>
   ),
 })

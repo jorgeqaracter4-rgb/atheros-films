@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Play } from 'lucide-react'
 import { useState, useEffect, useMemo } from 'react'
+import Image from 'next/image'
 
 export default function Hero() {
   const words = useMemo(() => ['engajam', 'impactam', 'conectam'], [])
@@ -60,7 +61,7 @@ export default function Hero() {
     return () => clearInterval(interval)
   }, [logos.length])
   return (
-    <section id="home" className="relative min-h-screen bg-black flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen bg-black flex items-center justify-center overflow-hidden" role="banner" aria-label="Seção principal">
       {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
@@ -69,6 +70,10 @@ export default function Hero() {
         muted
         loop
         playsInline
+        preload="metadata"
+        poster="/hero-poster.jpg"
+        aria-label="Vídeo de fundo da Atheros Films"
+        role="presentation"
       />
 
       {/* Overlay for better text readability */}
@@ -84,7 +89,7 @@ export default function Hero() {
           >
             <h1 className="text-white font-extrabold tracking-tight mb-6 leading-[0.9]">
               <span className="block text-[73px]">Crie conexões com</span>
-              <span className="block text-[73px]">vídeos que <span className="text-brand-500">{displayed}</span><span className="typing-caret" /></span>
+              <span className="block text-[73px]">vídeos que <span className="text-brand-500" aria-live="polite">{displayed}</span><span className="typing-caret" aria-hidden="true" /></span>
             </h1>
           </motion.div>
 
@@ -103,9 +108,12 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <button className="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-base md:text-lg px-8 md:px-10 py-3 md:py-4 rounded-full shadow-lg shadow-brand-600/30 transition-all duration-300 flex items-center gap-3">
+            <button 
+              className="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-base md:text-lg px-8 md:px-10 py-3 md:py-4 rounded-full shadow-lg shadow-brand-600/30 transition-all duration-300 flex items-center gap-3 focus:outline-none focus:ring-4 focus:ring-brand-500/50"
+              aria-label="Solicitar orçamento para produção audiovisual"
+            >
               Solicitar Orçamento
-              <ArrowRight className="w-6 h-6" />
+              <ArrowRight className="w-6 h-6" aria-hidden="true" />
             </button>
           </motion.div>
         </div>
@@ -121,15 +129,22 @@ export default function Hero() {
         <div className="container-custom">
           <div className="flex items-center justify-center space-x-12 md:space-x-16 opacity-60">
             {logos.slice(currentPage * 4, (currentPage + 1) * 4).map((logo, index) => (
-              <motion.img
+              <motion.div
                 key={`${currentPage}-${index}`}
-                src={logo.src}
-                alt={logo.alt}
-                className="h-8 w-auto"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-              />
+                className="h-8 w-auto"
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={120}
+                  height={32}
+                  className="h-8 w-auto"
+                  loading="lazy"
+                />
+              </motion.div>
             ))}
           </div>
           
