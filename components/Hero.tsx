@@ -70,9 +70,11 @@ export default function Hero() {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
+        poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiIGZpbGw9IiMwMDAwMDAiLz48L3N2Zz4="
         aria-label="Vídeo de fundo da Atheros Films"
         role="presentation"
+        style={{ willChange: 'auto' }}
       />
 
       {/* Overlay for better text readability */}
