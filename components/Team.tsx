@@ -97,11 +97,11 @@ export default function Team() {
             </h2>
 
             {/* Descrição */}
-            <p className="text-xl text-white/90 leading-relaxed">
+            <p className="text-xl text-white leading-relaxed">
               Por trás de cada produção da Atheros Films, existe um time apaixonado, criativo e comprometido em transformar ideias em experiências audiovisuais de verdade.
             </p>
 
-            <p className="text-lg text-white/90">
+            <p className="text-lg text-white">
               Conheça quem faz a mágica acontecer:
             </p>
 

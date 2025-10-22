@@ -18,7 +18,7 @@ export default function DiagonalTapeSection() {
         offsetY={60}
         blur={3}
         ribbonBg="linear-gradient(90deg, rgba(255,40,40,0.65), rgba(255,40,40,0.22))"
-        textColor="rgba(255,255,255,0.6)"
+        textColor="rgba(255,255,255,0.9)"
         speed={0.25}
         zIndex={8}
       />

@@ -122,6 +122,56 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="preload" href="/Fundo.mp4" as="video" type="video/mp4" />
         <link rel="preload" href="/logo.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/backstagePrancheta-1.png" as="image" type="image/png" />
+        <link rel="preload" href="/video-galeria.mp4" as="video" type="video/mp4" />
+        <link rel="preload" href="/foto03.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/Sem-Titulo-1Prancheta-1.png" as="image" type="image/png" />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+              })
+            }
+          `
+        }} />
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Critical CSS for above-the-fold content */
+            html{scroll-behavior:smooth;font-display:swap}
+            body{font-family:Inter,system-ui,sans-serif;margin:0;padding:0;background:#000;color:#fff}
+            .container-custom{max-width:1280px;margin:0 auto;padding:0 1rem}
+            .min-h-screen{min-height:100vh}
+            .bg-black{background-color:#000}
+            .text-white{color:#fff}
+            .flex{display:flex}
+            .items-center{align-items:center}
+            .justify-center{justify-content:center}
+            .relative{position:relative}
+            .absolute{position:absolute}
+            .inset-0{top:0;right:0;bottom:0;left:0}
+            .w-full{width:100%}
+            .h-full{height:100%}
+            .object-cover{object-fit:cover}
+            .z-10{z-index:10}
+            .text-6xl{font-size:3.75rem;line-height:1}
+            .font-bold{font-weight:700}
+            .text-center{text-align:center}
+            .py-6{padding-top:1.5rem;padding-bottom:1.5rem}
+            .px-6{padding-left:1.5rem;padding-right:1.5rem}
+            .py-3{padding-top:0.75rem;padding-bottom:0.75rem}
+            .rounded-full{border-radius:9999px}
+            .bg-brand-600{background-color:#d93a3a}
+            .hover\\:bg-brand-700:hover{background-color:#b62f2f}
+            .text-sm{font-size:0.875rem;line-height:1.25rem}
+            .font-semibold{font-weight:600}
+            .shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05)}
+            .transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(0.4,0,0.2,1);transition-duration:150ms}
+            .hidden{display:none}
+            @media (min-width:768px){.md\\:block{display:block}}
+            @media (min-width:768px){.md\\:hidden{display:none}}
+          `
+        }} />
       </head>
       <body className={`${inter.className} antialiased`}>
         {children}

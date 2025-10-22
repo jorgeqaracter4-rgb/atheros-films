@@ -53,7 +53,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   className={`font-medium text-[16px] transition-colors duration-200 relative ${
-                    isScrolled ? 'text-white/80 hover:text-white' : 'text-white/90 hover:text-white'
+                    isScrolled ? 'text-white hover:text-white' : 'text-white hover:text-white'
                   } ${
                     item.name === 'Home' ? 'text-brand-500 border-b-2 border-brand-500 pb-1' : ''
                   }`}
