@@ -48,7 +48,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(jpg|jpeg|png|gif|ico|svg|webp|avif))",
+      "source": "/(.*\\.(jpg|jpeg|png|gif|ico|svg|webp|avif))$",
       "headers": [
         {
           "key": "Cache-Control",
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(mp4|webm|ogg))",
+      "source": "/(.*\\.(mp4|webm|ogg))$",
       "headers": [
         {
           "key": "Cache-Control",
