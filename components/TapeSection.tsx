@@ -33,7 +33,7 @@ export default function TapeSection() {
       {[...text, ...text, ...text, ...text, ...text].map((item, index) => (
         <span key={index} className="text-white font-bold text-sm flex items-center">
           {item}
-          <span className="mx-3 text-white/50 text-xs">•</span>
+          <span className="mx-3 text-white text-xs">•</span>
         </span>
       ))}
     </div>
