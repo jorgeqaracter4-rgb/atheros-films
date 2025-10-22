@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="bb" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e5e7eb"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#bb)">
+    <text x="20" y="25" font-family="Inter, sans-serif" font-size="16" font-weight="800">BIOMECANICA</text>
+    <text x="20" y="45" font-family="Inter, sans-serif" font-size="12" font-weight="600">BRASIL</text>
+    <path d="M160 15 Q170 10 180 15 Q170 20 160 15" fill="url(#bb)" opacity="0.5"/>
+  </g>
+</svg>

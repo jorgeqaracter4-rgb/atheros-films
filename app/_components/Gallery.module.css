@@ -1,0 +1,125 @@
+/* Variáveis controladas inline pelo componente */
+.root {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  gap: var(--gap);
+  will-change: transform;
+  align-items: center;
+  height: var(--galleryHeight);
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(85vw, 600px);
+  height: var(--galleryHeight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #151515;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Controles */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.nav:hover { 
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.left { 
+  left: 20px; 
+}
+
+.right { 
+  right: 20px; 
+}
+
+/* Dots */
+.dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding: 20px 0 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dotActive {
+  width: 24px;
+  border-radius: 999px;
+  background: #E53434;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .slide { 
+    width: 84vw; 
+  }
+  .nav { 
+    width: 44px; 
+    height: 44px; 
+    font-size: 24px; 
+  }
+}
+
+@media (max-width: 640px) {
+  .slide { 
+    width: 90vw; 
+  }
+  .media { 
+    height: calc(var(--galleryHeight) * 0.72); 
+  }
+  .left { 
+    left: calc(6vw - 6px); 
+  }
+  .right { 
+    right: calc(6vw - 6px); 
+  }
+}

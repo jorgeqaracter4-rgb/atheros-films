@@ -1,0 +1,33 @@
+/* Wrapper absoluto com largura expandida para cobrir viewport diagonal */
+.wrapper {
+  position: absolute;
+  left: -20vw;
+  width: 140vw;
+  overflow: hidden;
+}
+
+/* Container da fita com overflow hidden */
+.ribbon {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Track flexível para unidades de texto */
+.track {
+  display: flex;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Unidade de texto com tipografia otimizada */
+.unit {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0 2rem;
+  font-size: clamp(14px, 2.2vw, 28px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+

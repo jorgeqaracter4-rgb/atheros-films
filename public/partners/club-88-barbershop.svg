@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="c88" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e5e7eb"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#c88)">
+    <rect x="15" y="10" width="30" height="20" rx="4" stroke="#fbbf24" stroke-width="2" fill="none"/>
+    <text x="55" y="20" font-family="Inter, sans-serif" font-size="16" font-weight="800">CLUB 88</text>
+    <text x="55" y="35" font-family="Inter, sans-serif" font-size="12" font-weight="500">Barbershop</text>
+  </g>
+</svg>
