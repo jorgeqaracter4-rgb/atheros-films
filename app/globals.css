@@ -55,6 +55,23 @@
 }
 
 @layer utilities {
+  /* Mobile-specific optimizations */
+  @media (max-width: 768px) {
+    .mobile-contain {
+      contain: layout style paint;
+    }
+    
+    .mobile-stable {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    .mobile-text-stable {
+      contain: layout style paint;
+      will-change: auto;
+    }
+  }
+  
   .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;
   }

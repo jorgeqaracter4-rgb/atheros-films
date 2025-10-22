@@ -74,7 +74,16 @@ const nextConfig = {
         fs: false,
         net: false,
         tls: false,
+        crypto: false,
+        stream: false,
+        util: false,
+        buffer: false,
+        process: false,
       }
+      
+      // Otimizar para mobile
+      config.optimization.usedExports = true
+      config.optimization.sideEffects = false
     }
     return config
   },

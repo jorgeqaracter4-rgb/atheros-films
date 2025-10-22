@@ -134,6 +134,10 @@ export default function RootLayout({
         <link rel="preload" href="/_next/static/css/app/layout.css" as="style" />
         <link rel="preload" href="/_next/static/css/app/globals.css" as="style" />
         
+        {/* Preload mobile-specific resources */}
+        <link rel="preload" href="/_next/static/chunks/pages/_app.js" as="script" />
+        <link rel="preload" href="/_next/static/chunks/webpack.js" as="script" />
+        
         {/* Preload critical fonts */}
         <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script 
@@ -183,6 +187,9 @@ export default function RootLayout({
             .hidden{display:none}
             @media (min-width:768px){.md\\:block{display:block}}
             @media (min-width:768px){.md\\:hidden{display:none}}
+            @media (max-width:768px){.mobile-contain{contain:layout style paint}}
+            @media (max-width:768px){.mobile-stable{min-height:44px;min-width:44px}}
+            @media (max-width:768px){.mobile-text-stable{contain:layout style paint;will-change:auto}}
           `
         }} />
       </head>
