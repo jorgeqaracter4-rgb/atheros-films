@@ -30,16 +30,16 @@ export default function Footer() {
                 Transformamos ideias em experiências inesquecíveis. Produção audiovisual profissional para marcas, eventos e criadores de conteúdo.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors" aria-label="Seguir no Instagram">
                   <Instagram className="w-5 h-5 text-black" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors" aria-label="Curtir no Facebook">
                   <Facebook className="w-5 h-5 text-black" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors" aria-label="Conectar no LinkedIn">
                   <Linkedin className="w-5 h-5 text-black" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors" aria-label="Inscrever-se no YouTube">
                   <Youtube className="w-5 h-5 text-black" />
                 </a>
               </div>

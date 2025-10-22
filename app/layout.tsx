@@ -127,6 +127,13 @@ export default function RootLayout({
         <link rel="preload" href="/video-galeria.mp4" as="video" type="video/mp4" fetchPriority="low" />
         <link rel="preload" href="/foto03.webp" as="image" type="image/webp" fetchPriority="low" />
         <link rel="preload" href="/Sem-Titulo-1Prancheta-1.png" as="image" type="image/png" fetchPriority="low" />
+        
+        {/* Preload critical CSS */}
+        <link rel="preload" href="/_next/static/css/app/layout.css" as="style" />
+        <link rel="preload" href="/_next/static/css/app/globals.css" as="style" />
+        
+        {/* Preload critical fonts */}
+        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script dangerouslySetInnerHTML={{
           __html: `
             if ('serviceWorker' in navigator) {
