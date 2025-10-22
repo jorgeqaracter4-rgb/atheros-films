@@ -7,10 +7,6 @@
       "maxDuration": 30
     }
   },
-  "crawler": {
-    "userAgent": "Googlebot",
-    "allowPaths": ["/", "/sobre", "/servicos", "/portfolio", "/contato"]
-  },
   "headers": [
     {
       "source": "/(.*)",
