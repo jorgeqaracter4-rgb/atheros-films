@@ -71,7 +71,6 @@ export default function Hero() {
         loop
         playsInline
         preload="metadata"
-        poster="/hero-poster.jpg"
         aria-label="Vídeo de fundo da Atheros Films"
         role="presentation"
       />

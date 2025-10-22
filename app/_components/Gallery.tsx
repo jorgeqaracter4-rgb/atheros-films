@@ -65,7 +65,7 @@ export default function Gallery({
   // Pause quando fora de viewport
   const rootRef = useRef<HTMLDivElement | null>(null)
   useEffect(() => {
-    if (!autoplayPlugin || !rootRef.current) return
+    if (!autoplayPlugin || !rootRef.current || typeof window === 'undefined') return
     const el = rootRef.current
     const io = new IntersectionObserver(
       (entries) => {

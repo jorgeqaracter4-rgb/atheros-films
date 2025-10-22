@@ -1,10 +1,9 @@
 import dynamic from "next/dynamic"
-import { Suspense } from "react"
 import styles from "./PortfolioSection.module.css"
 import { GalleryItem } from "../_components/Gallery"
 
 const Gallery = dynamic(() => import("../_components/Gallery"), {
-  ssr: false,
+  ssr: true,
   loading: () => (
     <div className="flex items-center justify-center h-[400px]">
       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-500"></div>
@@ -35,20 +34,14 @@ export default function PortfolioSection() {
         </p>
 
         <div className={styles.galleryWrapper}>
-          <Suspense fallback={
-            <div className={styles.loading}>
-              <p>Carregando galeria...</p>
-            </div>
-          }>
-            <Gallery 
-              items={galleryItems} 
-              height={400} 
-              gap={20} 
-              peek={0} 
-              autoplayMs={4000} 
-              loop={true}
-            />
-          </Suspense>
+          <Gallery 
+            items={galleryItems} 
+            height={400} 
+            gap={20} 
+            peek={0} 
+            autoplayMs={4000} 
+            loop={true}
+          />
         </div>
       </div>
     </section>

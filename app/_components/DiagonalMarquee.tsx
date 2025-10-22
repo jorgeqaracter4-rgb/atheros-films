@@ -73,9 +73,10 @@ export default function DiagonalMarquee({
     if (isReducedMotion || !trackRef.current || !unitWidth || typeof window === 'undefined') return
 
     let lastScrollY = 0
+    let isAnimating = false
 
     const updateTransform = () => {
-      if (!trackRef.current) return
+      if (!trackRef.current || !isAnimating) return
 
       const scrollY = window.scrollY
       const deltaY = scrollY - lastScrollY
@@ -85,14 +86,16 @@ export default function DiagonalMarquee({
       trackRef.current.style.transform = `translate3d(-${translateX}px, 0, 0)`
       lastScrollY = scrollY
 
-      animationRef.current = requestAnimationFrame(updateTransform)
+      if (isAnimating) {
+        animationRef.current = requestAnimationFrame(updateTransform)
+      }
     }
 
     const handleScroll = () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current)
+      if (!isAnimating) {
+        isAnimating = true
+        animationRef.current = requestAnimationFrame(updateTransform)
       }
-      animationRef.current = requestAnimationFrame(updateTransform)
     }
 
     // Usa passive: true para melhor performance
@@ -102,6 +105,7 @@ export default function DiagonalMarquee({
     updateTransform()
 
     return () => {
+      isAnimating = false
       window.removeEventListener('scroll', handleScroll)
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)
