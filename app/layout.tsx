@@ -120,12 +120,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-        <link rel="preload" href="/Fundo.mp4" as="video" type="video/mp4" />
-        <link rel="preload" href="/logo.webp" as="image" type="image/webp" />
-        <link rel="preload" href="/backstagePrancheta-1.png" as="image" type="image/png" />
-        <link rel="preload" href="/video-galeria.mp4" as="video" type="video/mp4" />
-        <link rel="preload" href="/foto03.webp" as="image" type="image/webp" />
-        <link rel="preload" href="/Sem-Titulo-1Prancheta-1.png" as="image" type="image/png" />
+        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/Fundo.mp4" as="video" type="video/mp4" fetchpriority="high" />
+        <link rel="preload" href="/logo.webp" as="image" type="image/webp" fetchpriority="high" />
+        <link rel="preload" href="/backstagePrancheta-1.png" as="image" type="image/png" fetchpriority="high" />
+        <link rel="preload" href="/video-galeria.mp4" as="video" type="video/mp4" fetchpriority="low" />
+        <link rel="preload" href="/foto03.webp" as="image" type="image/webp" fetchpriority="low" />
+        <link rel="preload" href="/Sem-Titulo-1Prancheta-1.png" as="image" type="image/png" fetchpriority="low" />
         <script dangerouslySetInnerHTML={{
           __html: `
             if ('serviceWorker' in navigator) {

@@ -59,8 +59,19 @@ const DiagonalMarquee = memo(function DiagonalMarquee({
     if (!unitRef.current || typeof window === 'undefined') return
 
     const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        setUnitWidth(entry.contentRect.width)
+      // Use requestIdleCallback to avoid blocking the main thread
+      if (window.requestIdleCallback) {
+        window.requestIdleCallback(() => {
+          for (const entry of entries) {
+            setUnitWidth(entry.contentRect.width)
+          }
+        })
+      } else {
+        setTimeout(() => {
+          for (const entry of entries) {
+            setUnitWidth(entry.contentRect.width)
+          }
+        }, 0)
       }
     })
 

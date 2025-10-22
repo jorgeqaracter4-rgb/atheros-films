@@ -16,6 +16,8 @@ const nextConfig = {
         chunks: 'all',
         minSize: 20000,
         maxSize: 244000,
+        maxAsyncRequests: 30,
+        maxInitialRequests: 30,
         cacheGroups: {
           default: {
             minChunks: 2,
@@ -41,6 +43,20 @@ const nextConfig = {
             name: 'embla',
             chunks: 'all',
             priority: 10,
+            reuseExistingChunk: true,
+          },
+          react: {
+            test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+            name: 'react',
+            chunks: 'all',
+            priority: 20,
+            reuseExistingChunk: true,
+          },
+          next: {
+            test: /[\\/]node_modules[\\/]next[\\/]/,
+            name: 'next',
+            chunks: 'all',
+            priority: 20,
             reuseExistingChunk: true,
           },
         },

@@ -74,7 +74,12 @@ export default function Hero() {
         poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiIGZpbGw9IiMwMDAwMDAiLz48L3N2Zz4="
         aria-label="Vídeo de fundo da Atheros Films"
         role="presentation"
-        style={{ willChange: 'auto' }}
+        style={{ 
+          willChange: 'auto',
+          aspectRatio: '16/9',
+          minHeight: '100vh',
+          objectPosition: 'center center'
+        }}
       />
 
       {/* Overlay for better text readability */}
@@ -88,9 +93,18 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-8"
           >
-            <h1 className="text-white font-extrabold tracking-tight mb-6 leading-[0.9]">
-              <span className="block text-[73px]">Crie conexões com</span>
-              <span className="block text-[73px]">vídeos que <span className="text-brand-500" aria-live="polite">{displayed}</span><span className="typing-caret" aria-hidden="true" /></span>
+            <h1 className="text-white font-extrabold tracking-tight mb-6 leading-[0.9]" style={{ 
+              contain: 'layout style paint',
+              willChange: 'auto'
+            }}>
+              <span className="block text-[73px]" style={{ 
+                contain: 'layout style paint'
+              }}>Crie conexões com</span>
+              <span className="block text-[73px]" style={{ 
+                contain: 'layout style paint'
+              }}>vídeos que <span className="text-brand-500" aria-live="polite" style={{ 
+                contain: 'layout style paint'
+              }}>{displayed}</span><span className="typing-caret" aria-hidden="true" /></span>
             </h1>
           </motion.div>
 
