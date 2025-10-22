@@ -1,21 +1,7 @@
-'use client'
-
-import { useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, RefreshCw } from 'lucide-react'
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string }
-  reset: () => void
-}) {
-  useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error)
-  }, [error])
-
+export default function Custom500() {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center">
       <div className="text-center">
@@ -26,7 +12,7 @@ export default function Error({
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
-            onClick={reset}
+            onClick={() => window.location.reload()}
             className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300"
           >
             <RefreshCw className="w-5 h-5" />

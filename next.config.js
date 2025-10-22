@@ -29,6 +29,9 @@ const nextConfig = {
   poweredByHeader: false,
   generateEtags: true,
   
+  // Disable static generation for error pages
+  trailingSlash: false,
+  
   // Headers for better caching
   async headers() {
     return [
