@@ -32,12 +32,6 @@ const nextConfig = {
   // Disable static generation for error pages
   trailingSlash: false,
   
-  // Skip static generation for error pages
-  skipTrailingSlashRedirect: true,
-  
-  // Disable static generation for error pages
-  generateStaticParams: false,
-  
   // Headers for better caching
   async headers() {
     return [
