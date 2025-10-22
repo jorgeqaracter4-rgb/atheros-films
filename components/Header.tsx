@@ -35,7 +35,7 @@ export default function Header() {
         <div className="flex items-center justify-between py-6">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="block">
+            <a href="#home" className="block" aria-label="Atheros Films - Página inicial">
               <img
                 src="/logo.webp"
                 alt="Atheros Films"
@@ -57,6 +57,7 @@ export default function Header() {
                   } ${
                     item.name === 'Home' ? 'text-brand-500 border-b-2 border-brand-500 pb-1' : ''
                   }`}
+                  aria-label={`Navegar para ${item.name}`}
                 >
                   {item.name}
                 </a>
@@ -68,7 +69,8 @@ export default function Header() {
           <div className="flex-shrink-0">
             <a
               href="#contato"
-              className="inline-flex items-center rounded-full bg-brand-600 hover:bg-brand-700 text-white px-6 py-3 font-semibold text-sm shadow-lg shadow-brand-600/30 transition-colors"
+              className="inline-flex items-center rounded-full bg-brand-600 hover:bg-brand-700 text-white px-6 py-4 font-semibold text-sm shadow-lg shadow-brand-600/30 transition-colors min-h-[44px] min-w-[44px]"
+              aria-label="Entre em contato para solicitar orçamento"
             >
               Entre em contato
             </a>

@@ -237,6 +237,7 @@ export default function Gallery() {
             <button
               onClick={() => setSelectedImage(null)}
               className="absolute top-4 right-4 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-colors"
+              aria-label="Fechar galeria"
             >
               ×
             </button>

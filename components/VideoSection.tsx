@@ -24,8 +24,10 @@ export default function VideoSection() {
               controls
               poster="/video-galeria.mp4"
               preload="metadata"
+              aria-label="Vídeo da galeria de trabalhos da Atheros Films"
             >
               <source src="/video-galeria.mp4" type="video/mp4" />
+              <track kind="captions" srcLang="pt" label="Português" />
               Seu navegador não suporta o elemento de vídeo.
             </video>
             
@@ -40,9 +42,10 @@ export default function VideoSection() {
           {/* Botão de Orçamento */}
           <motion.a
             href="#contato"
-            className="inline-flex items-center rounded-lg bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 font-semibold text-lg shadow-lg shadow-brand-600/30 transition-all duration-300 transform hover:scale-105"
+            className="inline-flex items-center rounded-lg bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 font-semibold text-lg shadow-lg shadow-brand-600/30 transition-all duration-300 transform hover:scale-105 min-h-[44px] min-w-[44px]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            aria-label="Solicitar orçamento para produção audiovisual"
           >
             Solicitar orçamento
           </motion.a>

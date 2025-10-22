@@ -80,7 +80,9 @@ export default function Hero() {
           minHeight: '100vh',
           objectPosition: 'center center'
         }}
-      />
+      >
+        <track kind="captions" srcLang="pt" label="Português" />
+      </video>
 
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-black/40" />
@@ -124,7 +126,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <button 
-              className="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-base md:text-lg px-8 md:px-10 py-3 md:py-4 rounded-full shadow-lg shadow-brand-600/30 transition-all duration-300 flex items-center gap-3 focus:outline-none focus:ring-4 focus:ring-brand-500/50"
+              className="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-base md:text-lg px-8 md:px-10 py-4 md:py-5 rounded-full shadow-lg shadow-brand-600/30 transition-all duration-300 flex items-center gap-3 focus:outline-none focus:ring-4 focus:ring-brand-500/50 min-h-[44px] min-w-[44px]"
               aria-label="Solicitar orçamento para produção audiovisual"
             >
               Solicitar Orçamento
