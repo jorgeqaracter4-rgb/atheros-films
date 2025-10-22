@@ -68,9 +68,6 @@ const nextConfig = {
         'core-js': false,
       }
       
-      // Otimizar para ES2020+
-      config.target = 'es2020'
-      
       // Remover polyfills desnecessários
       config.resolve.fallback = {
         ...config.resolve.fallback,
