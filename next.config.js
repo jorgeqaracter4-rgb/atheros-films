@@ -5,6 +5,7 @@ const nextConfig = {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
     scrollRestoration: true,
     webpackBuildWorker: true,
+    esmExternals: 'loose',
   },
   
   // Webpack optimizations
@@ -12,17 +13,34 @@ const nextConfig = {
     if (!dev && !isServer) {
       config.optimization.splitChunks = {
         chunks: 'all',
+        minSize: 20000,
+        maxSize: 244000,
         cacheGroups: {
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+          },
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
             chunks: 'all',
+            priority: -10,
+            reuseExistingChunk: true,
           },
           framer: {
             test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
             name: 'framer',
             chunks: 'all',
             priority: 10,
+            reuseExistingChunk: true,
+          },
+          embla: {
+            test: /[\\/]node_modules[\\/]embla-carousel[\\/]/,
+            name: 'embla',
+            chunks: 'all',
+            priority: 10,
+            reuseExistingChunk: true,
           },
         },
       }
@@ -45,6 +63,12 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     unoptimized: false,
     loader: 'default',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   
   // Performance optimizations

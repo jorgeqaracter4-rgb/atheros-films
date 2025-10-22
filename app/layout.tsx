@@ -120,6 +120,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="preload" href="/Fundo.mp4" as="video" type="video/mp4" />
+        <link rel="preload" href="/logo.webp" as="image" type="image/webp" />
       </head>
       <body className={`${inter.className} antialiased`}>
         {children}

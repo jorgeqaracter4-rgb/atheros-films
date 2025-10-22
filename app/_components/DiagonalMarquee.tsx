@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, memo } from 'react'
 import styles from './DiagonalMarquee.module.css'
 
 type DiagonalMarqueeProps = {
@@ -19,7 +19,7 @@ type DiagonalMarqueeProps = {
   className?: string           // classe extra opcional
 }
 
-export default function DiagonalMarquee({
+const DiagonalMarquee = memo(function DiagonalMarquee({
   text,
   angleDeg = -6,
   height = 64,
@@ -177,4 +177,6 @@ export default function DiagonalMarquee({
       </div>
     </div>
   )
-}
+})
+
+export default DiagonalMarquee

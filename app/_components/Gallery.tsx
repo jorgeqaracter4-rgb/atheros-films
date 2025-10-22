@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useCallback, useEffect, useMemo, useRef } from "react"
+import React, { useCallback, useEffect, useMemo, useRef, memo } from "react"
 import Image from "next/image"
 import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
@@ -29,7 +29,7 @@ export type GalleryProps = {
   onSlideChange?: (index: number) => void
 }
 
-export default function Gallery({
+const Gallery = memo(function Gallery({
   items,
   height = 320,
   gap = 16,
@@ -164,4 +164,6 @@ export default function Gallery({
       </div>
     </div>
   )
-}
+})
+
+export default Gallery
