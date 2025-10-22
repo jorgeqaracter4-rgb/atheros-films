@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "vercel-build": "next build",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "force-deploy": "git add . && git commit -m 'force: clear cache - $(date +%s)' && git push origin main"
   },
   "dependencies": {
     "next": "14.0.4",
