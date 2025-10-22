@@ -81,9 +81,55 @@ const nextConfig = {
         process: false,
       }
       
-      // Otimizar para mobile
+      // Otimizar para mobile - reduzir chunks e reflows
       config.optimization.usedExports = true
       config.optimization.sideEffects = false
+      
+      // Reduzir número de chunks para evitar reflows forçados
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        minSize: 20000,
+        maxSize: 244000,
+        maxAsyncRequests: 6,
+        maxInitialRequests: 4,
+        cacheGroups: {
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true
+          },
+          react: {
+            test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+            name: 'react',
+            chunks: 'all',
+            priority: 20
+          },
+          next: {
+            test: /[\\/]node_modules[\\/]next[\\/]/,
+            name: 'next',
+            chunks: 'all',
+            priority: 15
+          },
+          framer: {
+            test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+            name: 'framer',
+            chunks: 'all',
+            priority: 10
+          },
+          embla: {
+            test: /[\\/]node_modules[\\/]embla-carousel[\\/]/,
+            name: 'embla',
+            chunks: 'all',
+            priority: 10
+          },
+          vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+            priority: 5
+          }
+        }
+      }
     }
     return config
   },

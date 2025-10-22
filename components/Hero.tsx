@@ -151,7 +151,12 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="h-8 w-auto"
+                className="h-8 w-auto mobile-contain"
+                style={{ 
+                  minWidth: '120px',
+                  minHeight: '32px',
+                  contain: 'layout style paint'
+                }}
               >
                 <Image
                   src={logo.src}
@@ -159,7 +164,13 @@ export default function Hero() {
                   width={120}
                   height={32}
                   className="h-8 w-auto"
-                  loading="lazy"
+                  loading="eager"
+                  priority={index < 2}
+                  style={{
+                    width: '120px',
+                    height: '32px',
+                    objectFit: 'contain'
+                  }}
                 />
               </motion.div>
             ))}
@@ -170,12 +181,18 @@ export default function Hero() {
             {Array.from({ length: Math.ceil(logos.length / 4) }).map((_, index) => (
               <button
                 key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                className={`rounded-full transition-all duration-300 mobile-stable ${
                   index === currentPage 
                     ? 'bg-brand-500 w-6' 
-                    : 'bg-white/30 hover:bg-white/50'
+                    : 'bg-white/30 hover:bg-white/50 w-2 h-2'
                 }`}
                 onClick={() => setCurrentPage(index)}
+                aria-label={`Ir para página ${index + 1} dos parceiros`}
+                style={{
+                  minWidth: '44px',
+                  minHeight: '44px',
+                  contain: 'layout style paint'
+                }}
               />
             ))}
           </div>

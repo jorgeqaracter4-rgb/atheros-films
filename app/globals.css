@@ -70,6 +70,30 @@
       contain: layout style paint;
       will-change: auto;
     }
+    
+    /* Prevent layout shift for partner logos */
+    .partner-logo-container {
+      min-width: 120px;
+      min-height: 32px;
+      contain: layout style paint;
+    }
+    
+    .partner-logo {
+      width: 120px !important;
+      height: 32px !important;
+      object-fit: contain;
+    }
+    
+    /* Prevent forced reflows on mobile */
+    .prevent-reflow {
+      contain: layout style paint;
+      will-change: auto;
+    }
+    
+    .diagonal-marquee {
+      contain: layout style paint;
+      will-change: transform;
+    }
   }
   
   .animate-fade-in-up {

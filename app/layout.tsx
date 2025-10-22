@@ -194,6 +194,10 @@ export default function RootLayout({
             @media (max-width:768px){.mobile-text-stable{contain:layout style paint;will-change:auto}}
             @media (max-width:480px){.mobile-xs{font-size:2rem}}
             @media (max-width:480px){.mobile-xs-padding{padding:0.5rem}}
+            @media (max-width:768px){.partner-logo-container{min-width:120px;min-height:32px;contain:layout style paint}}
+            @media (max-width:768px){.partner-logo{width:120px!important;height:32px!important;object-fit:contain}}
+            @media (max-width:768px){.prevent-reflow{contain:layout style paint;will-change:auto}}
+            @media (max-width:768px){.diagonal-marquee{contain:layout style paint;will-change:transform}}
           `
         }} />
       </head>

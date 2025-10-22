@@ -59,32 +59,34 @@ const DiagonalMarquee = memo(function DiagonalMarquee({
     if (!unitRef.current || typeof window === 'undefined') return
 
     let timeoutId: NodeJS.Timeout | null = null
+    let rafId: number | null = null
+    let lastWidth = 0
     
     const resizeObserver = new ResizeObserver((entries) => {
-      // Throttle updates for mobile performance
+      // Throttle updates for mobile performance - prevent forced reflow
       if (timeoutId) clearTimeout(timeoutId)
       
       timeoutId = setTimeout(() => {
-        if (window.requestIdleCallback) {
-          window.requestIdleCallback(() => {
-            for (const entry of entries) {
-              setUnitWidth(entry.contentRect.width)
+        if (rafId) cancelAnimationFrame(rafId)
+        
+        rafId = requestAnimationFrame(() => {
+          for (const entry of entries) {
+            const newWidth = entry.contentRect.width
+            // Only update if width actually changed to prevent unnecessary reflows
+            if (Math.abs(newWidth - lastWidth) > 1) {
+              lastWidth = newWidth
+              setUnitWidth(newWidth)
             }
-          }, { timeout: 100 })
-        } else {
-          requestAnimationFrame(() => {
-            for (const entry of entries) {
-              setUnitWidth(entry.contentRect.width)
-            }
-          })
-        }
-      }, 16) // ~60fps throttling
+          }
+        })
+      }, 32) // Increased throttling to 30fps for mobile
     })
 
     resizeObserver.observe(unitRef.current)
     return () => {
       resizeObserver.disconnect()
       if (timeoutId) clearTimeout(timeoutId)
+      if (rafId) cancelAnimationFrame(rafId)
     }
   }, [text])
 
@@ -99,12 +101,13 @@ const DiagonalMarquee = memo(function DiagonalMarquee({
       if (!trackRef.current || !isAnimating) return
 
       const scrollY = window.scrollY
-      const deltaY = scrollY - lastScrollY
-      const translateX = (scrollY * speed) % unitWidth
-
-      // Usa translate3d para GPU acceleration
-      trackRef.current.style.transform = `translate3d(-${translateX}px, 0, 0)`
-      lastScrollY = scrollY
+      // Only update if scroll position changed significantly to prevent forced reflow
+      if (Math.abs(scrollY - lastScrollY) > 2) {
+        const translateX = (scrollY * speed) % unitWidth
+        // Usa translate3d para GPU acceleration
+        trackRef.current.style.transform = `translate3d(-${translateX}px, 0, 0)`
+        lastScrollY = scrollY
+      }
 
       if (isAnimating) {
         animationRef.current = requestAnimationFrame(updateTransform)
